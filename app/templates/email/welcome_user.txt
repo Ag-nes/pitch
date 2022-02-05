@@ -1,0 +1,8 @@
+Hello {{user.author}},
+
+Welcome to Powers in 60 seconds!
+
+Thank you for signing with us and welcome on board.
+Feel at home,participate and have fuun!!
+
+Management.

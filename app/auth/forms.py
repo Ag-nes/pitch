@@ -4,7 +4,6 @@ from wtforms.validators import input_required,Email,EqualTo
 from ..models import User
 
 
-        # login users
 class LoginForm(FlaskForm):
     email = StringField('Your Email Address',validators=[input_required(),Email()])
     password = PasswordField('Password',validators =[input_required()])
@@ -20,7 +19,7 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
     def validate_email(self,data_field):
             if User.query.filter_by(email =data_field.data).first():
-                raise ValidationError('There is an account with that email')
+                raise ValidationError('This account exists')
 
     def validate_author(self,data_field):
         if User.query.filter_by(author = data_field.data).first():

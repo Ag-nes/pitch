@@ -11,16 +11,14 @@ This is an application that allows users to use that one minute wisely. The user
 ## Live page
 
 
-
 ## User stories
 
 As a user I would like to:
 
-1. see the pitches other people have posted.
+1. view other people's pitches
 2. submit a pitch in any category.
-3. be signed in for me to leave a comment
-4. view the pitches I have created in my profile page.
-5. comment on the different pitches and leave feedback.
+3. view the pitches I have created in my profile page.
+4. comment on the different pitches and leave feedback.
    
 ## Behavior Driven Development (BDD)
 
@@ -35,8 +33,8 @@ As a user I would like to:
 ## Installation/Setup instruction
 
 #### The application requires the following installations to operate
-* python3.8
 * flask
+* python3
 * virtualenv
 * pip
  
@@ -45,7 +43,7 @@ As a user I would like to:
 * Open Terminal {Ctrl+Alt+T}
 
 ```
-$git clone https://github.com/edwinkipchumba/pitch
+$git clone https://github.com/Ag-nes/pitch
 ```
 ```
 $cd pitch
@@ -70,7 +68,7 @@ $ ./start.sh
 ## Technology used
 
 * flask
-* HTML5
+* HTML
 * Bootstrap
 * python3.8
 

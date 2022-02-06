@@ -5,7 +5,7 @@ from app.models import User, Comments, Pitches
 class UserModelTest(unittest.TestCase):
 
     def setUp(self):
-        self.new_user = User(password='banana')
+        self.new_user = User(password='@liammyfirst1')
 
     def test_password_setter(self):
         self.assertTrue(self.new_user.password_hash is not None)
@@ -15,18 +15,18 @@ class UserModelTest(unittest.TestCase):
             self.new_user.password
 
     def test_password_verification(self):
-        self.assertTrue(self.new_user.verify_password('banana'))
+        self.assertTrue(self.new_user.verify_password('@liammyfirst1'))
 
 
 class CommentsModelTest(unittest.TestCase):
 
     def setUp(self):
-        self.new_comment = Comments(id=1, user_id=2, comment='cross buns', pitches_id='5', date_posted='2021-09-09')
+        self.new_comment = Comments(id=1, user_id=2, comment='cross buns', pitches_id='5', date_posted='2022-02-06')
 
     def test_comment_variables(self):
         # self.assertEquals(self.new_comment.id, 2)
         self.assertEquals(self.new_comment.comment, 'cross buns')
-        self.assertEquals(self.new_comment.date_posted, '2021-09-09')
+        self.assertEquals(self.new_comment.date_posted, '2022-02-06')
         self.assertEquals(self.new_comment.user_id, 2)
         # self.assertEquals(self.new_comment.pitches_id, 4)
 

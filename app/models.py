@@ -21,7 +21,6 @@ class User(UserMixin, db.Model):
     pitch = db.relationship('Pitches', backref='author', lazy='dynamic')
     comments = db.relationship('Comments', backref='author', lazy='dynamic')
 
-    # to link tables what you add after backref matters
     @property
     def password(self):
         raise AttributeError('You cannnot read the password attribute')

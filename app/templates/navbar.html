@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
-    <a class="navbar-brand" href="/">PickUp</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: sienna;">
+    <a class="navbar-brand" href="/">Power Pitches</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,10 +10,10 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/categories/values">Values</a>
+          <a class="nav-link" href="/categories/values">Coding</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/categories/coding">Coding</a>
+          <a class="nav-link" href="/categories/coding">Life</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/categories/education">Education</a>
@@ -27,11 +27,11 @@
           <a class="nav-link" href="{{url_for('main.profile',uname=current_user.author)}}">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+          <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
+          <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
         </li>
         {%endif%}
       </ul>

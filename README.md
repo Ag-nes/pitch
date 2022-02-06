@@ -81,3 +81,6 @@ If you find a bug, kindly feel free to comment an issue here and include their c
  Feel free to contact me in case of any issue or questions, ideas and concern towards the same.
  * E-Mail: faithagnes2@gmail.com.
 
+## License
+* *MIT License:*
+* Copyright (c) 2022 **AgnesNafula**

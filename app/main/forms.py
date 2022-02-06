@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, SelectField
-from wtforms.validators import Required
+from wtforms.validators import input_required, Email
 
 
 # pictch form section
@@ -21,5 +21,5 @@ class CommentForm(FlaskForm):
 # update profile
 
 class UpdateProfile(FlaskForm):
-    bio = TextAreaField('Tell us about you.', validators=[Required()])
+    bio = TextAreaField('Tell us about you.', validators=[input_required()])
     submit = SubmitField('Submit')

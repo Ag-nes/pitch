@@ -7,7 +7,10 @@ app = create_app('production')
 # app = create_app('development')
 
 manager = Manager(app)
+migrate = Migrate(app, db)
 manager.add_command('server', Server)
+
+manager.add_command('db', MigrateCommand)
 
 
 @manager.command
@@ -23,8 +26,7 @@ def make_shell_context():
     return dict(app=app, db=db, User=User, Pitches=Pitches, Comments=Comments)
 
 
-migrate = db(app, db)
-manager.add_command('db', migrate)
+
 
 if __name__ == '__main__':
     manager.run()

@@ -3,7 +3,7 @@ import os
 
 class Config:
     SECRET_KEY = 'SECRET_KEY'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://Ag-nes:powers@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch'
 
     #  image uploader
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
@@ -33,7 +33,7 @@ class ProdConfig(Config):
 
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://Ag-nes:002@localhost/pitches_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch_test'
 
 
 class DevConfig(Config):
@@ -43,7 +43,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     # connecting to database
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://Ag-nes:002@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitch'
 
     DEBUG = True
 

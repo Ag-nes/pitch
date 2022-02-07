@@ -16,7 +16,7 @@ def index():
     return
     '''
     message= "Welcome"
-    title= 'Pickup!'
+    title= 'Power pitch!'
     return render_template('index.html', message=message,title=title)
 
 @main.route('/pitch/', methods = ['GET','POST'])

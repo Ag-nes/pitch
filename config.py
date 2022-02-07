@@ -3,7 +3,7 @@ import os
 
 class Config:
     SECRET_KEY = 'SECRET_KEY'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://Ag-nes:@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://Ag-nes:powers@localhost/pitches'
 
     #  image uploader
     UPLOADED_PHOTOS_DEST = 'app/static/photos'

@@ -1,39 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/">Power Pitches </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse display-6" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/categories/values">Coding</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/categories/coding">Life</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/categories/education">Education</a>
-        </li>
-      </ul>
-
-      <!-- user section -->
-      <ul class="nav navbar-nav ms-auto">
-        {% if current_user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('main.profile',uname=current_user.author)}}">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
-        </li>
-        {%endif%}
-      </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-lg-5 " href="{{url_for('main.index')}}" >Power Pitch</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ">
+          <a class="nav-link active mx-5" aria-current="page" href="{{url_for('main.index')}}">Home</a>
+          
+        </div>
+  
+        <div class="collapse navbar-collapse justify-content-end mx-5" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+  
+            {% if current_user.is_authenticated %}
+            <a class="nav-link mx-lg-5 text-white" aria-current="page" href="{{url_for('main.profile',user_name=current_user.username)}}">Hello <strong> {{current_user.username}} </strong><span class="mx-lg-5"> Profile</span> </a>
+            <a class="nav-link text-white" aria-current="page" href="{{url_for('auth.logout')}}">Logout</a>
+  
+            {%else%}
+            <a class="nav-link mx-lg-5" aria-current="page" href="{{url_for('auth.login')}}">Login</a>
+            {% endif %}
+          </div>
+      </div>
     </div>
   </nav>

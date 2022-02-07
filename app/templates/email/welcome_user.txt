@@ -1,8 +1,7 @@
-Hello {{user.author}},
+Hello {{user.username}}
 
-Welcome to Powers in 60 seconds!
+Welcome to PowerPitch.
 
-Thank you for signing with us and welcome on board.
-Feel at home,participate and have fuun!!
+Thank you for signing Up with PowerPitch, cheeers!
 
-Management.
+Management

@@ -1,25 +1,17 @@
+
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField, SelectField
-from wtforms.validators import input_required, Email
+from wtforms import TextAreaField,SelectField,SubmitField,BooleanField
 
+from wtforms.validators import InputRequired,DataRequired
 
-# pictch form section
 class PitchForm(FlaskForm):
-    title = StringField('Pitch Title')
-    category = SelectField(u'Pitch Category',
-                           choices=[('coding', 'coding'), ('life', 'life'),('educational', 'educational')])
-    pitch = TextAreaField('Pitch')
-    submit = SubmitField('Submit')
+  content=TextAreaField('',validators=[],render_kw={"placeholder": "Pitch away.."})
+  category=SelectField('Category',choices=[('pickup_lines','Pickup Line'),('product_pitch','Product Pitch'),('promotional_pitch','Promotional Pitch'),('interview','Interview')],validators=[InputRequired()])
+  submit=SubmitField('Submit')
 
-
-# comment form section
 class CommentForm(FlaskForm):
-    comment = TextAreaField('Comment')
-    submit = SubmitField('Post Comments')
+  comment=TextAreaField('',validators=[],render_kw={"placeholder": "Write a comment"})
+  submit=SubmitField('Submit')
 
-
-# update profile
-
-class UpdateProfile(FlaskForm):
-    bio = TextAreaField('Please tell us about yourself', validators=[input_required()])
-    submit = SubmitField('Submit')
+class DownVoteForm(FlaskForm):
+  downvote=BooleanField()

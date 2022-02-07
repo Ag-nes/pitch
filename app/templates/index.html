@@ -1,50 +1,48 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{%block content%} 
 
-<!-- styles block -->
-{% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+<div class="container">
 
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-{% endblock %}
-{% block content %}
+  <div class="row mt-3">
 
-<body>
-  <br>
-  <div class="d-flex justify-content-center">
-    <div class="card-groups">
-      <div class="card border-info mb-5" style="max-width: 100%;">
-        <div class="card-header">Coding</div>
-        <div class="card-body text-info">
-          <h5 class="card-title">Coding Pitches</h5>
-          <p class="card-text">Coding is quite fun!</p>
-          <button type="button" class="btn btn-outline-success"><a href="../pitch/">Add Pitch</a></button>
-          <button type="button" class="btn btn-outline-success"><a href="/categories/coding">Read Pitches</a></button>
-        </div>
+    <div class="col-md-8 col-lg-8 px-lg-5">
+      
+      {% if pitch_form %}
+      <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePitchForm" aria-expanded="false" aria-controls="collapseExample">
+        New Pitch
+      </button>
+      <div class="m-lg-3 collapse" id="collapsePitchForm">
+      {{ wtf.quick_form(pitch_form) }}
+      {{simplemde.load}}
+    </div>
+      {% endif %}
+      {% if category %}
+      <h5 class="text-center">{{category.replace('_',' ',1)}} Pitches</h5>
+      {% else %}
+      <h5 class="text-center">Pitches</h5>
+      {% endif %}
+      {% if pitches %}
+      {{macro.displayPitchList(pitches,comments,upvotes,downvotes,downvote_form)}}
+      {% else %}
+      <p>No Pitches</p>
+      {% endif %}
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+
+      <div class="card px-lg-5 my-lg-5">
+
+        <h5>Category</h5>
+        <ul class="list-unstyled">
+          <li class="m-2"><a href="{{url_for('main.category',category_name='Life')}}"> Life Pitches</a></li>
+          <li class="m-2"><a href="{{url_for('main.category',category_name='pickup_lines')}}"> Pickup Lines</a></li>
+          <li class="m-2"><a href="{{url_for('main.category',category_name='business_pitch')}}"> Businness Pitches </a></li>
+
+        </ul>
       </div>
-
-      <div class="card border-info mb-5 shadow" style="max-width: 100%;">
-        <div class="card-header">Life</div>
-        <div class="card-body text-info">
-          <h5 class="card-title">Life pitches</h5>
-          <p class="card-text">You only live once, make the best out of every second</p>
-          <button type="button" class="btn btn-outline-success"><a href="../pitch/">Add Pitch</a></button>
-          <button type="button" class="btn btn-outline-success"><a href="/categories/life">Read Pitches</a></button>
-        </div>
-      </div>
-
-      <div class="card border-info mb-5" style="max-width: 100%;">
-        <div class="card-header"> Education</div>
-        <div class="card-body text-info">
-          <h4 class="card-title">Education Pitches</h4>
-          <p class="card-text">Education is key, knnowledge is power!</p>
-          <button type="button" class="btn btn-outline-success"><a href="../pitch/">Add Pitch</a></button>
-          <button type="button" class="btn btn-outline-success"><a href="/categories/Education">Read Pitches</a></button>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  {% endblock%}
-</body>
+</div>
+{%endblock%}
